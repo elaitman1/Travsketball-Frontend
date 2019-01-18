@@ -8,7 +8,7 @@ class GameList extends Component {
     return (
       <div>
         {this.props.games.map(game => {
-          return <GamePreview key={game.id} game={game} setSelectedGame={this.props.setSelectedGame}/>
+          return <GamePreview key={game.id} game={game} setSelectedGame={this.props.setSelectedGame} clearSelectedGame={this.props.clearSelectedGame}/>
         })}
       </div>
     )

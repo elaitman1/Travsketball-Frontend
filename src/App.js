@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './containers/Header.js';
-import TripList from './containers/TripList.js'
-import TripDetailsContainer from './containers/TripDetailsContainer.js'
+// import TripList from './containers/TripList.js'
+// import TripDetailsContainer from './containers/TripDetailsContainer.js'
 import GameContainer from './containers/GameContainer'
 import NewTrip from './components/NewTrip'
 
@@ -34,8 +34,8 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <TripList />
-        <TripDetailsContainer />
+        {/* <TripList />
+        <TripDetailsContainer /> */}
         {/* <GameContainer games={this.state.games}/> */}
         <NewTrip teams={this.state.teams} games={this.state.games} />
       </div>

@@ -4,22 +4,21 @@ import GameDetails from  '../components/GameDetails'
 
 class GameContainer extends Component {
   state = {
-    selectedTeam: null,
     selectedGameId: null
   }
 
-  setSelectedGame = (gameId) => {
-    console.log("hit setgame in game container")
-    // const selectedGameId = this.props.games.find(game => game.id === gameId).id
+
+
+  clearSelectedGame = () => {
     this.setState({
-      selectedGameId: gameId
+      selectedGameId: null
     })
   }
 
   render() {
     return (
       <div>
-        {this.state.selectedGameId ? <GameDetails gameId={this.state.selectedGameId}/> : <GameList games={this.props.games} setSelectedGame={this.setSelectedGame} />}
+        {this.props.gameId ? <GameDetails gameId={this.props.gameId}/> : <GameList games={this.props.games} setSelectedGame={this.props.setSelectedGame} clearSelectedGame={this.clearSelectedGame}/>}
       </div>
     )
   }

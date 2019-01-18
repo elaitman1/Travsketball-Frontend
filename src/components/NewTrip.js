@@ -5,7 +5,7 @@ var moment = require('moment');
 class NewTrip extends Component {
   state = {
     team: null,
-    game: null
+    gameId: null
   }
 
   getTeamGames = () => {
@@ -23,15 +23,22 @@ class NewTrip extends Component {
   handleTeamChange = (e) => {
     this.setState({
       team: e.target.value,
-      game: null
+      gameId: null
     })
   }
 
-  handleGameChange = (e) => {
+  // handleGameChange = (e) => {
+  //   this.setState({
+  //     game: e.target.value
+  //   })
+  // }
+
+  setSelectedGame = (gameId) => {
     this.setState({
-      game: e.target.value
+      gameId: gameId
     })
   }
+
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -39,6 +46,17 @@ class NewTrip extends Component {
   }
 
   render() {
+    let gameContainer
+    if (this.state.team) {
+      gameContainer = <GameContainer
+               games={this.props.games.filter(game => game.title.includes(this.state.team))}
+               gameId={this.state.gameId}
+               setSelectedGame={this.setSelectedGame}
+             />
+    } else {
+      gameContainer = null
+    }
+    
     return (
       // <div>
       //   <h2>New Trip</h2>
@@ -61,6 +79,8 @@ class NewTrip extends Component {
       //   </form>
       // </div>
 
+
+
       <div>
         <h2>New Trip</h2>
         <select name="team" onChange={this.handleTeamChange}>
@@ -68,7 +88,7 @@ class NewTrip extends Component {
             return <option key={team.id} value={team.name}>{team.name}</option>
            })}
         </select>
-        {this.state.team ? <GameContainer games={this.props.games.filter(game => game.title.includes(this.state.team))} /> : " "}
+        {gameContainer}
       </div>
     )
   }
