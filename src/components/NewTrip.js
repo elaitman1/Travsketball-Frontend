@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+var moment = require('moment');
 
 class NewTrip extends Component {
   state = {
@@ -15,7 +16,7 @@ class NewTrip extends Component {
       teamGames = this.props.games
     }
 
-    return teamGames.map(game => <option key={game.id} value={game.id}>{game.title}</option>)
+    return teamGames.map(game => <option key={game.id} value={game.id}>{moment(game.date).format('l')} - {game.title}</option>)
   }
 
   handleTeamChange = (e) => {
@@ -38,19 +39,26 @@ class NewTrip extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Select Team</label>
-        <select name="team" onChange={this.handleTeamChange}>
-          {this.props.teams.map(team => {
-            return <option key={team.id} value={team.name}>{team.name}</option>
-          })}
-        </select>
-        <label>Select Game</label>
-        <select name="game" onChange={this.handleGameChange}>
-          {this.getTeamGames()}
-        </select>
-        <button>Create Trip</button>
-      </form>
+      <div>
+        <h2>New Trip</h2>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label>Select Team</label>
+            <select name="team" onChange={this.handleTeamChange}>
+              {this.props.teams.map(team => {
+                return <option key={team.id} value={team.name}>{team.name}</option>
+              })}
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Select Game</label>
+            <select name="game" onChange={this.handleGameChange}>
+              {this.getTeamGames()}
+            </select>
+          </div>
+          <button>Create Trip</button>
+        </form>
+      </div>
     )
   }
 }
