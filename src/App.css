@@ -27,3 +27,10 @@
   width: 1220px;
   border: 3px solid green;
 }
+
+
+/********** GAME DETAILS **********/
+.game-details img {
+  width: 200px;
+  height: auto;
+}

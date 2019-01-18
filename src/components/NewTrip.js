@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import GameContainer from '../containers/GameContainer'
 var moment = require('moment');
 
 class NewTrip extends Component {
@@ -39,25 +40,35 @@ class NewTrip extends Component {
 
   render() {
     return (
+      // <div>
+      //   <h2>New Trip</h2>
+      //   <form onSubmit={this.handleSubmit}>
+      //     <div className="form-group">
+      //       <label>Select Team</label>
+      //       <select name="team" onChange={this.handleTeamChange}>
+      //         {this.props.teams.map(team => {
+      //           return <option key={team.id} value={team.name}>{team.name}</option>
+      //         })}
+      //       </select>
+      //     </div>
+      //     <div className="form-group">
+      //       <label>Select Game</label>
+      //       <select name="game" onChange={this.handleGameChange}>
+      //         {this.getTeamGames()}
+      //       </select>
+      //     </div>
+      //     <button>Create Trip</button>
+      //   </form>
+      // </div>
+
       <div>
         <h2>New Trip</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>Select Team</label>
-            <select name="team" onChange={this.handleTeamChange}>
-              {this.props.teams.map(team => {
-                return <option key={team.id} value={team.name}>{team.name}</option>
-              })}
-            </select>
-          </div>
-          <div className="form-group">
-            <label>Select Game</label>
-            <select name="game" onChange={this.handleGameChange}>
-              {this.getTeamGames()}
-            </select>
-          </div>
-          <button>Create Trip</button>
-        </form>
+        <select name="team" onChange={this.handleTeamChange}>
+          {this.props.teams.map(team => {
+            return <option key={team.id} value={team.name}>{team.name}</option>
+           })}
+        </select>
+        {this.state.team ? <GameContainer games={this.props.games.filter(game => game.title.includes(this.state.team))} /> : " "}
       </div>
     )
   }

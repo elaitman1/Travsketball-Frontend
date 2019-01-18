@@ -1,18 +1,25 @@
 import React, {Component} from 'react'
-var moment = require('moment');
-
+import GameList from '../components/GameList'
+import GameDetails from  '../components/GameDetails'
 
 class GameContainer extends Component {
+  state = {
+    selectedTeam: null,
+    selectedGameId: null
+  }
+
+  setSelectedGame = (gameId) => {
+    console.log("hit setgame in game container")
+    // const selectedGameId = this.props.games.find(game => game.id === gameId).id
+    this.setState({
+      selectedGameId: gameId
+    })
+  }
+
   render() {
     return (
       <div>
-        {this.props.games.map(game => {
-          return <div key={game.id}>
-                    <h3>{game.title}</h3>
-                    <p><strong>Date:</strong>{moment(game.date).format("MMM Do YYYY")}</p>
-                    <p><strong>Time:</strong>{moment(game.date).format("LT")}</p>
-                 </div>
-        })}
+        {this.state.selectedGameId ? <GameDetails gameId={this.state.selectedGameId}/> : <GameList games={this.props.games} setSelectedGame={this.setSelectedGame} />}
       </div>
     )
   }
