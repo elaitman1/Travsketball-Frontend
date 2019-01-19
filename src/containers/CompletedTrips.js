@@ -11,5 +11,4 @@ class CompletedTrips extends Component {
   }
 
 }
-
 export default CompletedTrips;
