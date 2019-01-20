@@ -3,7 +3,7 @@ import './App.css';
 import Header from './containers/Header.js';
 import TripList from './containers/TripList.js'
 import TripDetailsContainer from './containers/TripDetailsContainer.js'
-import GoogleMapsContainer from './containers/GoogleMapsContainer.js'
+import MapContainer from './containers/MapContainer.js'
 
 export default class App extends Component {
   render() {
@@ -12,7 +12,7 @@ export default class App extends Component {
         <Header />
         <TripList />
         <TripDetailsContainer />
-        <GoogleMapsContainer />
+        <MapContainer />
       </div>
     );
   }
