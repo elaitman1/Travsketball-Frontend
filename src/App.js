@@ -3,15 +3,16 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import Homepage from './containers/Homepage'
 import Header from './containers/Header.js';
-// import TripList from './containers/TripList.js'
+import TripList from './containers/TripList.js'
 // import TripDetailsContainer from './containers/TripDetailsContainer.js'
 import GameContainer from './containers/GameContainer'
-import NewTrip from './components/NewTrip'
+import NewTrip from './containers/NewTrip'
 
 class App extends Component {
   state = {
+    currentUserId: 1,
     games: [],
-    teams: []
+    teams: [],
   }
 
   componentDidMount() {
@@ -32,6 +33,11 @@ class App extends Component {
     })
   }
 
+  createTrip = () => {
+    console.log("hit create trip")
+    window.location.href = '/trip-list'
+  }
+
   render() {
     return (
       <Router>
@@ -43,7 +49,8 @@ class App extends Component {
           {/* <NewTrip teams={this.state.teams} games={this.state.games} /> */}
 
           <Route path="/" exact component={Homepage} />
-          <Route path="/new-trip/" component={props => <NewTrip teams={this.state.teams} games={this.state.games} />} />
+          <Route path="/new-trip/" component={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
+          <Route path="/trip-list" exact component={TripList} />
         </div>
       </Router>
     );

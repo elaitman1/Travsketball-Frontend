@@ -25,10 +25,6 @@ class GameDetails extends Component {
     })
   }
 
-  handleClick = () => {
-    console.log("click to add to trip")
-  }
-
   render() {
     return (
       <div className="game-details">
@@ -40,7 +36,6 @@ class GameDetails extends Component {
         <h4>Stadium: {this.state.stadium.name}</h4>
         <h4>Location: {this.state.stadium.location}</h4>
         <img src={this.state.stadium.image} alt="{this.state.stadium.name}"/>
-        <button onClick={this.handleClick}>Add to Trip</button>
       </div>
     )
   }

@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
-import GameContainer from '../containers/GameContainer'
+import GameContainer from './GameContainer'
+import PickTripDetails from  '../components/PickTripDetails'
 var moment = require('moment');
 
 
 class NewTrip extends Component {
   state = {
     team: null,
-    gameId: null
+    gameId: null,
+    gameConfirmed: false
   }
 
   getTeamGames = () => {
@@ -28,18 +30,17 @@ class NewTrip extends Component {
     })
   }
 
-  // handleGameChange = (e) => {
-  //   this.setState({
-  //     game: e.target.value
-  //   })
-  // }
-
   setSelectedGame = (gameId) => {
     this.setState({
       gameId: gameId
     })
   }
 
+  handleClick = () => {
+    this.setState({
+      gameConfirmed: true
+    })
+  }
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -59,30 +60,7 @@ class NewTrip extends Component {
     }
 
     return (
-      // <div>
-      //   <h2>New Trip</h2>
-      //   <form onSubmit={this.handleSubmit}>
-      //     <div className="form-group">
-      //       <label>Select Team</label>
-      //       <select name="team" onChange={this.handleTeamChange}>
-      //         {this.props.teams.map(team => {
-      //           return <option key={team.id} value={team.name}>{team.name}</option>
-      //         })}
-      //       </select>
-      //     </div>
-      //     <div className="form-group">
-      //       <label>Select Game</label>
-      //       <select name="game" onChange={this.handleGameChange}>
-      //         {this.getTeamGames()}
-      //       </select>
-      //     </div>
-      //     <button>Create Trip</button>
-      //   </form>
-      // </div>
-
-
-
-      <div>
+      <div className="new-trip">
         <h2>New Trip</h2>
         <select name="team" onChange={this.handleTeamChange}>
           {this.props.teams.map(team => {
@@ -90,6 +68,8 @@ class NewTrip extends Component {
            })}
         </select>
         {gameContainer}
+        {this.state.gameId && !this.state.gameConfirmed ? <button onClick={this.handleClick}>Add to Trip</button> : <></>}
+        {this.state.gameConfirmed ? <PickTripDetails createTrip={this.props.createTrip}/> : <></>}
       </div>
     )
   }
