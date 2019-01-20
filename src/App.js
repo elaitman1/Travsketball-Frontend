@@ -33,9 +33,23 @@ class App extends Component {
     })
   }
 
-  createTrip = () => {
+  createTrip = (gameId, title, hotel, transportation) => {
     console.log("hit create trip")
-    window.location.href = '/trip-list'
+    fetch("http://localhost:4000/api/v1/users/1/trips", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        game_id: gameId,
+        user_id: this.state.currentUserId,
+        title: title,
+        hotel: hotel,
+        transportation: transportation
+      })
+    })
+    .then(r => window.location.href = '/trip-list')
   }
 
   render() {
@@ -50,7 +64,7 @@ class App extends Component {
 
           <Route path="/" exact component={Homepage} />
           <Route path="/new-trip/" component={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
-          <Route path="/trip-list" exact component={TripList} />
+          <Route path="/trip-list" exact component={props => <TripList currentUserId={this.state.currentUserId}/>} />
         </div>
       </Router>
     );

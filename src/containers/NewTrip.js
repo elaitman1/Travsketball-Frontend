@@ -42,19 +42,14 @@ class NewTrip extends Component {
     })
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    console.log("form submit")
-  }
-
   render() {
     let gameContainer
     if (this.state.team) {
       gameContainer = <GameContainer
-               games={this.props.games.filter(game => game.title.includes(this.state.team))}
-               gameId={this.state.gameId}
-               setSelectedGame={this.setSelectedGame}
-             />
+                        games={this.props.games.filter(game => game.title.includes(this.state.team))}
+                        gameId={this.state.gameId}
+                        setSelectedGame={this.setSelectedGame}
+                      />
     } else {
       gameContainer = null
     }
@@ -69,7 +64,7 @@ class NewTrip extends Component {
         </select>
         {gameContainer}
         {this.state.gameId && !this.state.gameConfirmed ? <button onClick={this.handleClick}>Add to Trip</button> : <></>}
-        {this.state.gameConfirmed ? <PickTripDetails createTrip={this.props.createTrip}/> : <></>}
+        {this.state.gameConfirmed ? <PickTripDetails gameId={this.state.gameId} createTrip={this.props.createTrip}/> : <></>}
       </div>
     )
   }
