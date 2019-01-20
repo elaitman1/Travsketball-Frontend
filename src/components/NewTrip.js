@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import GameContainer from '../containers/GameContainer'
 var moment = require('moment');
 
+
 class NewTrip extends Component {
   state = {
     team: null,
@@ -56,7 +57,7 @@ class NewTrip extends Component {
     } else {
       gameContainer = null
     }
-    
+
     return (
       // <div>
       //   <h2>New Trip</h2>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
+import Homepage from './containers/Homepage'
 import Header from './containers/Header.js';
 // import TripList from './containers/TripList.js'
 // import TripDetailsContainer from './containers/TripDetailsContainer.js'
@@ -32,13 +34,18 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        {/* <TripList />
-        <TripDetailsContainer /> */}
-        {/* <GameContainer games={this.state.games}/> */}
-        <NewTrip teams={this.state.teams} games={this.state.games} />
-      </div>
+      <Router>
+        <div>
+          <Header />
+          {/* <TripList />
+          <TripDetailsContainer /> */}
+          {/* <GameContainer games={this.state.games}/> */}
+          {/* <NewTrip teams={this.state.teams} games={this.state.games} /> */}
+
+          <Route path="/" exact component={Homepage} />
+          <Route path="/new-trip/" component={props => <NewTrip teams={this.state.teams} games={this.state.games} />} />
+        </div>
+      </Router>
     );
   }
 }
