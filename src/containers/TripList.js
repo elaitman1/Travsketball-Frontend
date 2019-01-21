@@ -11,7 +11,11 @@ class TripList extends Component {
   componentDidMount() {
     fetch(`http://localhost:4000/api/v1/users/${this.props.currentUserId}/trips`)
     .then(r => r.json())
-    .then(data => console.log(data))
+    .then(data => {
+      this.setState({
+        trips: data
+      })
+    })
   }
 
   render() {
