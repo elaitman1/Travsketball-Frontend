@@ -21,7 +21,7 @@ class TripList extends Component {
   render() {
     return (
       <div className="TripList">
-        <PlannedTrips />
+        <PlannedTrips trips={this.state.trips}/>
         <CompletedTrips />
       </div>
     );

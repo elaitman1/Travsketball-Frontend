@@ -17,8 +17,8 @@ class GameDetails extends Component {
       this.setState({
         title: data.game.title,
         date: data.game.date,
-        homeTeam: data["home_team"][0],
-        awayTeam: data["away_team"][0],
+        homeTeam: data["home_team"],
+        awayTeam: data["away_team"],
         stadium: data.stadium
       })
 
