@@ -8,7 +8,6 @@ class GameContainer extends Component {
   }
 
 
-
   clearSelectedGame = () => {
     this.setState({
       selectedGameId: null

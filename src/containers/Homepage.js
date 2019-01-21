@@ -7,6 +7,7 @@ class Homepage extends Component {
       <div>
         <h2>Homepage Placeholder</h2>
         <Link to="/new-trip"><button>New Trip</button></Link>
+        <Link to="/trip-list"><button>Trip List</button></Link>
       </div>
     )
   }

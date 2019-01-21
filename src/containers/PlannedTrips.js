@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
-import GamePreview from '../components/GamePreview'
+import TripPreview from '../components/TripPreview'
+import TripDetails from  '../components/TripDetails'
 
 class PlannedTrips extends Component {
+  state = {
+    tripId: null
+  }
+
+  setSelectedTrip = (tripId) => {
+    console.log(tripId);
+    this.setState({
+      tripId: tripId
+    })
+  }
+
 
   render() {
-    console.log(this.props.trips)
+    const trips = this.props.trips.map(trip => {
+      return <TripPreview key={trip.trip.id} trip={trip} setSelectedTrip={this.setSelectedTrip}/>
+    })
+
     return (
       <div className="PlannedTrips">
         <h2>Planned Trips</h2>
-        {this.props.trips.map(trip => {
-          return <GamePreview key={trip.trip.id} game={trip.game} />
-        })}
+        {this.state.tripId ? <TripDetails currentUserId={this.props.currentUserId} tripId={this.state.tripId}/> : trips}
       </div>
     );
   }
