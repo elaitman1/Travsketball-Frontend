@@ -35,7 +35,7 @@ class App extends Component {
 
   createTrip = (gameId, title, hotelId, transportationId) => {
     console.log("hit create trip")
-    fetch("http://localhost:4000/api/v1/users/1/trips", {
+    fetch(`http://localhost:4000/api/v1/users/${this.state.currentUserId}/trips`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,19 +52,38 @@ class App extends Component {
     .then(r => window.location.href = '/trip-list')
   }
 
+  editTrip = (tripId, title, hotelId, transportationId) => {
+    console.log("edit trip:", tripId, title, parseInt(hotelId), parseInt(transportationId))
+    fetch(`http://localhost:4000/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        hotel_id: parseInt(hotelId),
+        transportation_id: parseInt(transportationId),
+      })
+    })
+    .then(window.location.href = '/trip-list')
+  }
+
+  deleteTrip = (tripId) => {
+    fetch(`http://localhost:4000/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
+      method: "DELETE"
+    })
+    .then(window.location.href = '/trip-list')
+  }
+
   render() {
     return (
       <Router>
         <div>
           <Header />
-          {/* <TripList />
-          <TripDetailsContainer /> */}
-          {/* <GameContainer games={this.state.games}/> */}
-          {/* <NewTrip teams={this.state.teams} games={this.state.games} /> */}
-
           <Route path="/" exact component={Homepage} />
           <Route path="/new-trip/" component={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
-          <Route path="/trip-list" component={props => <TripList currentUserId={this.state.currentUserId}/>} />
+          <Route path="/trip-list" component={props => <TripList currentUserId={this.state.currentUserId} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/> } />
         </div>
       </Router>
     );
