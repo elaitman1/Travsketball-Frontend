@@ -5,25 +5,32 @@
 }
 
 .TripList {
-  float: left;
+  /* float: left;
   height: 900px;
-  width: 200px;
+  width: 200px; */
   border: 3px solid blue;
 }
 
 .PlannedTrips {
-  height: 450px;
+  /* height: 450px; */
   border: 3px solid purple;
 }
 
 .CompletedTrips {
-  height: 450px;
+  /* height: 450px; */
   border: 3px solid orange;
 }
 
 .TripDetailsContainer {
-  float: left;
+  /* float: left;
   height: 900px;
-  width: 1220px;
+  width: 1220px; */
   border: 3px solid green;
+}
+
+
+/********** GAME DETAILS **********/
+.game-details img {
+  width: 200px;
+  height: auto;
 }
