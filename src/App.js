@@ -33,7 +33,7 @@ class App extends Component {
     })
   }
 
-  createTrip = (gameId, title, hotel, transportation) => {
+  createTrip = (gameId, title, hotelId, transportationId) => {
     console.log("hit create trip")
     fetch("http://localhost:4000/api/v1/users/1/trips", {
       method: "POST",
@@ -45,8 +45,8 @@ class App extends Component {
         game_id: gameId,
         user_id: this.state.currentUserId,
         title: title,
-        hotel: hotel,
-        transportation: transportation
+        hotel_id: hotelId,
+        transportation_id: transportationId
       })
     })
     .then(r => window.location.href = '/trip-list')
