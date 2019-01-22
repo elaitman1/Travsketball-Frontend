@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PlannedTrips from './PlannedTrips'
-// import CompletedTrips from './CompletedTrips'
+import CompletedTrips from './CompletedTrips'
 
 class TripList extends Component {
 
@@ -22,7 +22,7 @@ class TripList extends Component {
     return (
       <div className="TripList">
         <PlannedTrips currentUserId={this.props.currentUserId} trips={this.state.trips.filter(trip => !trip.trip.completed)} editTrip={this.props.editTrip} deleteTrip={this.props.deleteTrip}/>
-        {/* <CompletedTrips /> */}
+        <CompletedTrips trips={this.state.trips.filter(trip => trip.trip.completed)}/>
       </div>
     );
   }
