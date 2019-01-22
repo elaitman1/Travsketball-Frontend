@@ -1,4 +1,8 @@
-.Header {
+body {
+  padding-bottom: 200px;
+}
+
+  .Header {
   height: 100px;
   width: 100%;
   border: 3px solid red;
@@ -26,6 +30,33 @@
   height: 900px;
   width: 1220px; */
   border: 3px solid green;
+}
+
+/********* NEW TRIP ********/
+.logo-box .logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 14%;
+  margin: 2% 1%;
+  text-align: center;
+}
+
+.logo-box .logo img {
+  width: 60%;
+  margin: 0 auto;
+  -webkit-transition: all .25s ease-in-out;
+-moz-transition: all .25s ease-in-out;
+-ms-transition: all .25s ease-in-out;
+-o-transition: all .25s ease-in-out;
+transition: all .25s ease-in-out;
+}
+
+.logo-box .logo img:hover, .logo-box .logo img:active, .logo-box .logo img:focus {
+  -moz-transform: scale(1.2);
+-webkit-transform: scale(1.2);
+-o-transform: scale(1.2);
+-ms-transform: scale(1.2);
+transform: scale(1.2);
 }
 
 

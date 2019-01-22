@@ -23,12 +23,12 @@ class NewTrip extends Component {
     return teamGames.map(game => <option key={game.id} value={game.id}>{moment(game.date).format('l')} - {game.title}</option>)
   }
 
-  handleTeamChange = (e) => {
-    this.setState({
-      team: e.target.value,
-      gameId: null
-    })
-  }
+  // handleTeamChange = (e) => {
+  //   this.setState({
+  //     team: e.target.value,
+  //     gameId: null
+  //   })
+  // }
 
   setSelectedGame = (gameId) => {
     this.setState({
@@ -36,11 +36,20 @@ class NewTrip extends Component {
     })
   }
 
-  handleClick = () => {
+  addGameToTrip = () => {
     this.setState({
       gameConfirmed: true
     })
   }
+
+  clickSelectTeam = (e) => {
+    console.log(e.target.alt)
+    this.setState({
+        team: e.target.alt,
+        gameId: null
+      })
+  }
+
 
   render() {
     let gameContainer
@@ -54,16 +63,39 @@ class NewTrip extends Component {
       gameContainer = null
     }
 
+    const allLogos = this.props.teams.map(team => {
+      return <div key={team.id} className="logo">
+               <img src={team.logo} alt={team.name} onClick={this.clickSelectTeam}/>
+             </div>
+     })
+
+     const pickedTeam = () => {
+       const foundTeam = this.props.teams.find(team => team.name === this.state.team)
+       return <div className="logo">
+                <img src={foundTeam.logo} alt={foundTeam.name} onClick={this.clickSelectTeam}/>
+              </div>
+     }
+
     return (
       <div className="new-trip">
         <h2>New Trip</h2>
-        <select name="team" onChange={this.handleTeamChange}>
+        {/* <select name="team" onChange={this.handleTeamChange}>
           {this.props.teams.map(team => {
             return <option key={team.id} value={team.name}>{team.name}</option>
            })}
-        </select>
+        </select> */}
+        {/* <div className="logo-box">
+          {this.props.teams.map(team => {
+            return <div key={team.id} className="logo" test={team.name}>
+                     <img src={team.logo} alt={team.name} onClick={this.clickSelectTeam}/>
+                   </div>
+           })}
+        </div> */}
+        <div className="logo-box">
+          {this.state.team ? pickedTeam() : allLogos}
+        </div>
         {gameContainer}
-        {this.state.gameId && !this.state.gameConfirmed ? <button onClick={this.handleClick}>Add to Trip</button> : <></>}
+        {this.state.gameId && !this.state.gameConfirmed ? <button onClick={this.addGameToTrip}>Add to Trip</button> : <></>}
         {this.state.gameConfirmed ? <PickTripDetails gameId={this.state.gameId} createTrip={this.props.createTrip}/> : <></>}
       </div>
     )
