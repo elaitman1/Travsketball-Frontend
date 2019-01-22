@@ -21,7 +21,7 @@ class TripList extends Component {
   render() {
     return (
       <div className="TripList">
-        <PlannedTrips currentUserId={this.props.currentUserId} trips={this.state.trips} editTrip={this.props.editTrip} deleteTrip={this.props.deleteTrip}/>
+        <PlannedTrips currentUserId={this.props.currentUserId} trips={this.state.trips.filter(trip => !trip.trip.completed)} editTrip={this.props.editTrip} deleteTrip={this.props.deleteTrip}/>
         {/* <CompletedTrips /> */}
       </div>
     );
