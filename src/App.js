@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import './App.css';
 import Homepage from './containers/Homepage'
-import Header from './containers/Header.js';
 import TripList from './containers/TripList.js'
-// import TripDetailsContainer from './containers/TripDetailsContainer.js'
-import GameContainer from './containers/GameContainer'
 import NewTrip from './containers/NewTrip'
 
 class App extends Component {

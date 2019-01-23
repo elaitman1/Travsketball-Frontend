@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TripPreview from '../components/TripPreview'
-import TripDetails from  '../components/TripDetails'
 
 class PlannedTrips extends Component {
   // state = {
