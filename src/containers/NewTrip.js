@@ -50,6 +50,12 @@ class NewTrip extends Component {
       })
   }
 
+  clearTeam = () => {
+    this.setState({
+      team: null
+    })
+  }
+
 
   render() {
     let gameContainer
@@ -73,6 +79,7 @@ class NewTrip extends Component {
        const foundTeam = this.props.teams.find(team => team.name === this.state.team)
        return <div className="logo">
                 <img src={foundTeam.logo} alt={foundTeam.name} onClick={this.clickSelectTeam}/>
+                <button onClick={this.clearTeam}>Change Team</button>
               </div>
      }
 
