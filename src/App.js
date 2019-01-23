@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import './App.css';
 import Homepage from './containers/Homepage'
 import Header from './containers/Header.js';
@@ -66,14 +66,16 @@ class App extends Component {
         transportation_id: parseInt(transportationId),
       })
     })
-    .then(window.location.href = '/trip-list')
+    // .then(window.location.href = '/trip-list')
+    .then( <Redirect to="/trip-list"/>)
   }
 
   deleteTrip = (tripId) => {
     fetch(`http://localhost:4000/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
       method: "DELETE"
     })
-    .then(window.location.href = '/trip-list')
+    // .then(window.location.href = '/trip-list')
+    .then( <Redirect to="/trip-list"/>)
   }
 
   render() {

@@ -43,11 +43,10 @@ class NewTrip extends Component {
   }
 
   clickSelectTeam = (e) => {
-    console.log(e.target.alt)
     this.setState({
         team: e.target.alt,
         gameId: null
-      })
+      }, window.scrollTo(0, 0))
   }
 
   clearTeam = () => {
