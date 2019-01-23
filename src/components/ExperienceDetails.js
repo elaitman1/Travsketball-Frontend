@@ -1,12 +1,10 @@
 import React, {Component} from 'react'
 import GameDetails from './GameDetails'
-import EditTrip from './EditTrip'
-import CompleteTripForm from './CompleteTripForm'
 
 class ExperienceDetails extends Component {
 
   state = {
-    experience: null
+    experience: undefined
   }
 
   componentDidMount() {
