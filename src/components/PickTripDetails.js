@@ -24,7 +24,8 @@ class PickTripDetails extends Component {
       })
   }
 
-  handleClick = () => {
+  handleSubmit = (e) => {
+    e.preventDefault()
     if (this.state.hotelId && this.state.transportationId && this.state.title && this.state.hotelId !== "prompt" && this.state.transportationId !== "prompt") {
       this.props.createTrip(this.props.gameId, this.state.title, this.state.hotelId, this.state.transportationId)
     }
@@ -38,25 +39,35 @@ class PickTripDetails extends Component {
 
   render() {
     return (
-      <div>
-        <label>Hotel</label>
-        <select name="hotelId" onChange={this.handleChange}>
-          <option value="prompt">Pick Hotel</option>
-          {this.state.hotels.map(hotel => {
-            return <option key={hotel.id} value={hotel.id}>{hotel.name}</option>
-          })}
-        </select>
-        <label>Transportation</label>
-        <select name="transportationId" onChange={this.handleChange}>
-          <option value="prompt">Pick Airline</option>
-          {this.state.transportations.map(transportation => {
-            return <option key={transportation.id} value={transportation.id}>{transportation.name}</option>
-          })}
-        </select>
-        <label>Trip Title</label>
-        <input type="text" name="title" value={this.state.title} onChange={this.handleChange}/>
-        <button className="btn btn-primary" onClick={this.handleClick}>Create Trip</button>
-      </div>
+      <form onSubmit={this.handleSubmit} className="create-trip-form">
+        <div className="row">
+          <div className="form-group col-md-3">
+            <label>Hotel</label>
+            <select name="hotelId" className="form-control" onChange={this.handleChange}>
+              <option value="prompt">Pick Hotel</option>
+              {this.state.hotels.map(hotel => {
+                return <option key={hotel.id} value={hotel.id}>{hotel.name}</option>
+              })}
+            </select>
+          </div>
+          <div className="form-group col-md-3">
+            <label>Transportation</label>
+            <select name="transportationId" className="form-control" onChange={this.handleChange}>
+              <option value="prompt">Pick Airline</option>
+              {this.state.transportations.map(transportation => {
+                return <option key={transportation.id} value={transportation.id}>{transportation.name}</option>
+              })}
+            </select>
+          </div>
+          <div className="form-group col-md-3">
+            <label>Trip Title</label>
+            <input type="text" name="title" className="form-control" value={this.state.title} onChange={this.handleChange}/>
+          </div>
+          <div className="col-md-3">
+            <button className="btn btn-primary">Create Trip</button>
+          </div>
+        </div>
+      </form>
     )
   }
 }

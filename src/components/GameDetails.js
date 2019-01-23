@@ -33,9 +33,13 @@ class GameDetails extends Component {
         <img src={this.state.awayTeam.logo} alt={this.state.awayTeam.name}/>
         <h4>Date: {moment(this.state.date).format("l")}</h4>
         <h4>Time: {moment(this.state.date).format("LT")}</h4>
-        <h4>Stadium: {this.state.stadium.name}</h4>
-        <h4>Location: {this.state.stadium.location}</h4>
-        <img src={this.state.stadium.image} alt="{this.state.stadium.name}"/>
+        <div className="stadium">
+          <div className="info">
+            <h4>{this.state.stadium.name}</h4>
+            <h4>{this.state.stadium.location}</h4>
+          </div>
+          <img src={this.state.stadium.image} alt="{this.state.stadium.name}"/>
+        </div>
       </div>
     )
   }

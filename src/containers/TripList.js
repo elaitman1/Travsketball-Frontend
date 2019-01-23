@@ -58,7 +58,6 @@ class TripList extends Component {
           {this.state.tripId ? <></> : <PlannedTrips trips={this.state.trips.filter(trip => !trip.trip.completed)} setSelectedTrip={this.setSelectedTrip}/>}
           {this.state.tripId ? <></> : <CompletedTrips trips={this.state.trips.filter(trip => trip.trip.completed)} setSelectedTrip={this.setSelectedTrip} />}
         </div>
-
       </div>
     );
   }
