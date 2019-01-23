@@ -8,10 +8,17 @@ import Login from './containers/Login'
 
 class App extends Component {
   state = {
-    currentUserId: 1,
+    currentUserId: undefined,
     games: [],
     teams: [],
   }
+
+  setUserId = (userId) => {
+    this.setState({
+      currentUserId: userId
+    })
+  }
+
 
   componentDidMount() {
     fetch("http://localhost:4000/api/v1/games")
@@ -47,7 +54,8 @@ class App extends Component {
         transportation_id: transportationId
       })
     })
-    .then(r => window.location.href = '/trip-list')
+    // .then(r => window.location.href = '/trip-list')
+    .then( <Redirect to="/trip-list"/>)
   }
 
   editTrip = (tripId, title, hotelId, transportationId) => {
@@ -77,6 +85,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <Router>
         <>
@@ -95,12 +104,10 @@ class App extends Component {
           </div>
         </div>
         <div>
-          <Route path="/" exact component={Login} />
-          <Route path="/homepage" exact component={Homepage} />
+          <Route path="/" exact render={props => <Homepage currentUserId={this.state.currentUserId} setUserId={this.setUserId}/>} />
 
           <Route path="/new-trip/" render={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
           <Route path="/trip-list" render={props => <TripList currentUserId={this.state.currentUserId} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/> } />
-          <Route path="/test" component={Homepage} />
         </div>
         </>
       </Router>
