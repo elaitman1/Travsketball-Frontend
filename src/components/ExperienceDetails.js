@@ -19,19 +19,14 @@ class ExperienceDetails extends Component {
     console.log('mount')
   }
 
-
-  isEmpty = (obj) => {
-    for (let key in obj) {
-      if (obj.hasOwnProperty(key)){
-        return false
-      }
-    }
-    return true
+  handleClearTrip = () => {
+    this.props.clearTrip()
   }
 
   render() {
     return (
             <div>
+              <button onClick={this.handleClearTrip}>Back to Trip List</button>
               {this.state.experience ? <GameDetails gameId={this.state.experience["game_id"]}/> : <></>}
               <h2>Review: {this.state.experience ? this.state.experience.review : 'title'}</h2>
               <h2>{this.state.experience ? this.state.experience.img_url : 'image'}</h2>
