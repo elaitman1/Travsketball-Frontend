@@ -4,6 +4,7 @@ import './App.css';
 import Homepage from './containers/Homepage'
 import TripList from './containers/TripList.js'
 import NewTrip from './containers/NewTrip'
+import Login from './containers/Login'
 
 class App extends Component {
   state = {
@@ -88,7 +89,9 @@ class App extends Component {
           </nav>
         </div>
         <div>
-          <Route path="/" exact component={Homepage} />
+          <Route path="/" exact component={Login} />
+          <Route path="/homepage" exact component={Homepage} />
+
           <Route path="/new-trip/" render={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
           <Route path="/trip-list" render={props => <TripList currentUserId={this.state.currentUserId} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/> } />
         </div>
