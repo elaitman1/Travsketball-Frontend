@@ -27,7 +27,7 @@ class GameDetails extends Component {
 
   render() {
     return (
-      <div className="game-details">
+      <div className="game-details col-12">
         <h2>{this.state.title}</h2>
         <img src={this.state.homeTeam.logo} alt={this.state.homeTeam.name}/>
         <img src={this.state.awayTeam.logo} alt={this.state.awayTeam.name}/>

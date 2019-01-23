@@ -20,9 +20,11 @@ class TripList extends Component {
 
   render() {
     return (
-      <div className="TripList">
-        <PlannedTrips currentUserId={this.props.currentUserId} trips={this.state.trips.filter(trip => !trip.trip.completed)} editTrip={this.props.editTrip} deleteTrip={this.props.deleteTrip}/>
-        <CompletedTrips trips={this.state.trips.filter(trip => trip.trip.completed)}/>
+      <div className="TripList container">
+        <div className="row">
+          <PlannedTrips currentUserId={this.props.currentUserId} trips={this.state.trips.filter(trip => !trip.trip.completed)} editTrip={this.props.editTrip} deleteTrip={this.props.deleteTrip}/>
+          <CompletedTrips trips={this.state.trips.filter(trip => trip.trip.completed)}/>
+        </div>
       </div>
     );
   }

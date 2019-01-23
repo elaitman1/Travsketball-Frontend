@@ -16,7 +16,7 @@ class GameContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="row">
         {this.props.gameId ? <GameDetails gameId={this.props.gameId}/> : <GameList games={this.props.games} setSelectedGame={this.props.setSelectedGame} clearSelectedGame={this.clearSelectedGame}/>}
       </div>
     )

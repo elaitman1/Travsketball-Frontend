@@ -21,7 +21,7 @@ class PlannedTrips extends Component {
     })
 
     return (
-      <div className="PlannedTrips">
+      <div className="PlannedTrips col-md-6">
         <h2>Planned Trips</h2>
         {this.state.tripId ? <TripDetails currentUserId={this.props.currentUserId} tripId={this.state.tripId} editTrip={this.props.editTrip} deleteTrip={this.props.deleteTrip}/> : trips}
       </div>

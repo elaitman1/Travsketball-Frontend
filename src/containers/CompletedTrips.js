@@ -22,7 +22,7 @@ class CompletedTrips extends Component {
     })
 
     return (
-      <div className="CompletedTrips">
+      <div className="CompletedTrips col-md-6">
         <h2>Completed Trips</h2>
         {this.state.tripId ? <ExperienceDetails currentUserId={this.props.currentUserId} tripId={this.state.tripId} /> : trips}
       </div>

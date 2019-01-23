@@ -8,7 +8,7 @@ class GamePreview extends Component {
 
   render() {
     return (
-      <div key={this.props.game.id}>
+      <div key={this.props.game.id} className="col-md-6">
         <h3>{this.props.game.title}</h3>
         <p><strong>Date:</strong>{moment(this.props.game.date).format("l")}</p>
         <p><strong>Time:</strong>{moment(this.props.game.date).format("LT")}</p>
