@@ -86,7 +86,7 @@ class NewTrip extends Component {
           </div>
         </div>
           {gameContainer}
-          {this.state.gameId && !this.state.gameConfirmed ? <button onClick={this.addGameToTrip}>Add to Trip</button> : <></>}
+          {this.state.gameId && !this.state.gameConfirmed ? <button className="btn btn-primary" onClick={this.addGameToTrip}>Add to Trip</button> : <></>}
           {this.state.gameConfirmed ? <PickTripDetails gameId={this.state.gameId} createTrip={this.props.createTrip}/> : <></>}
 
       </div>
