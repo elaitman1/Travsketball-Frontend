@@ -22,7 +22,7 @@ class PlannedTrips extends Component {
       <div className="PlannedTrips col-md-6">
         <h2>Planned Trips</h2>
         {this.props.trips.map(trip => {
-          return <TripPreview key={trip.trip.id} trip={trip} setSelectedTrip={this.setSelectedTrip}/>
+          return <TripPreview key={trip.trip.id} trip={trip} setSelectedTrip={this.props.setSelectedTrip}/>
         })}
       </div>
     );

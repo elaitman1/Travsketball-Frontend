@@ -27,20 +27,24 @@ class TripList extends Component {
     })
   }
 
+  clearTrip = () => {
+    this.setState({
+      tripId: null
+    })
+  }
+
 
 
 
   render() {
-    let detailBox
-    if (this.state.tripId) {
-      detailBox = <TripDetails currentUserId={this.props.currentUserId} tripId={this.state.tripId} editTrip={this.props.editTrip} deleteTrip={this.props.deleteTrip}/>
-    }
+
 
     return (
       <div className="TripList container">
         <div className="row">
-          <PlannedTrips trips={this.state.trips.filter(trip => !trip.trip.completed)}/>
-          <CompletedTrips trips={this.state.trips.filter(trip => trip.trip.completed)}/>
+          {this.state.tripId ? <TripDetails currentUserId={this.props.currentUserId} tripId={this.state.tripId} editTrip={this.props.editTrip} deleteTrip={this.props.deleteTrip} clearTrip={this.clearTrip}/> : <></>}
+          {this.state.tripId ? <></> : <PlannedTrips trips={this.state.trips.filter(trip => !trip.trip.completed)} setSelectedTrip={this.setSelectedTrip}/>}
+          {this.state.tripId ? <></> : <CompletedTrips trips={this.state.trips.filter(trip => trip.trip.completed)}/>}
         </div>
 
       </div>

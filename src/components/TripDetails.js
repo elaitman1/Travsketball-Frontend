@@ -29,7 +29,7 @@ class TripDetails extends Component {
   }
 
   handleDeleteClick = () => {
-    this.props.deleteTrip(this.state.trip.trip.id)
+    this.props.deleteTrip(this.props.trip.id)
   }
 
   handleCompleteClick = () => {
@@ -38,10 +38,15 @@ class TripDetails extends Component {
     })
   }
 
+  handleClearTrip = () => {
+    this.props.clearTrip()
+  }
+
   render() {
 
     const tripDetailBox = () => {
       return <div>
+              <button onClick={this.handleClearTrip}>Back to Trip List</button>
               <h2>{this.state.trip.trip.title}</h2>
               <h4>Hotel: {this.state.trip.hotel}</h4>
               <h4>Transportation: {this.state.trip.transportation}</h4>
@@ -52,9 +57,9 @@ class TripDetails extends Component {
       <div>
         {this.state.trip ?  tripDetailBox() : <></>}
         {this.state.trip ? <GameDetails gameId={this.state.trip.trip['game_id']} /> : <></>}
-        {this.state.activeEdit ? <EditTrip currentUserId={this.props.currentUserId} tripId={this.state.trip.trip.id} editTrip={this.props.editTrip}/> : <button onClick={this.handleEditClick}>Edit</button>}
+        {this.state.activeEdit ? <EditTrip currentUserId={this.props.currentUserId} tripId={this.props.tripId} editTrip={this.props.editTrip}/> : <button onClick={this.handleEditClick}>Edit</button>}
         <button onClick={this.handleDeleteClick}>Delete</button>
-        {this.state.activeComplete ? <CompleteTripForm currentUserId={this.props.currentUserId} tripId={this.state.trip.trip.id} completeTrip={this.props.completeTrip}/> : <button onClick={this.handleCompleteClick}>Complete Trip</button>}
+        {this.state.activeComplete ? <CompleteTripForm currentUserId={this.props.currentUserId} tripId={this.props.tripId} completeTrip={this.props.completeTrip}/> : <button onClick={this.handleCompleteClick}>Complete Trip</button>}
       </div>
     )
   }
