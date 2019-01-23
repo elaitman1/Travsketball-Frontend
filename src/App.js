@@ -84,8 +84,8 @@ class App extends Component {
         <div>
           <Header />
           <Route path="/" exact component={Homepage} />
-          <Route path="/new-trip/" component={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
-          <Route path="/trip-list" component={props => <TripList currentUserId={this.state.currentUserId} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/> } />
+          <Route path="/new-trip/" render={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
+          <Route path="/trip-list" render={props => <TripList currentUserId={this.state.currentUserId} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/> } />
         </div>
       </Router>
     );
