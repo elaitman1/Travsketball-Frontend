@@ -79,12 +79,21 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <>
+        <div className="nav">
+          <nav>
+            <h1>TravelSports</h1>
+            <Link to="/">Home</Link>
+            <Link to="/new-trip">Create A New Trip</Link>
+            <Link to="/trip-list">Trip List</Link>
+          </nav>
+        </div>
         <div>
-          <Header />
           <Route path="/" exact component={Homepage} />
           <Route path="/new-trip/" component={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
           <Route path="/trip-list" component={props => <TripList currentUserId={this.state.currentUserId} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/> } />
         </div>
+        </>
       </Router>
     );
   }
