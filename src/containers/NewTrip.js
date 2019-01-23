@@ -71,7 +71,7 @@ class NewTrip extends Component {
        const foundTeam = this.props.teams.find(team => team.name === this.state.team)
        return <div className="logo">
                 <img src={foundTeam.logo} alt={foundTeam.name} onClick={this.clickSelectTeam}/>
-                <button onClick={this.clearTeam}>Change Team</button>
+                <button className="btn btn-primary" onClick={this.clearTeam}>Change Team</button>
               </div>
      }
 
@@ -79,7 +79,7 @@ class NewTrip extends Component {
       <div className="new-trip container">
         <div className="row">
           <div className="col-12">
-            <h2>{this.state.team ? "Select a Game": "Select a Team"}</h2> 
+            <h2>{this.state.team ? "Select a Game": "Select a Team"}</h2>
           </div>
           <div className="logo-box col-12">
             {this.state.team ? pickedTeam() : allLogos}

@@ -46,7 +46,7 @@ class TripDetails extends Component {
 
     const tripDetailBox = () => {
       return <div>
-              <button onClick={this.handleClearTrip}>Back to Trip List</button>
+              <button className="btn btn-primary" onClick={this.handleClearTrip}>Back to Trip List</button>
               <h2>{this.state.trip.trip.title}</h2>
               <h4>Hotel: {this.state.trip.hotel}</h4>
               <h4>Transportation: {this.state.trip.transportation}</h4>
@@ -57,9 +57,9 @@ class TripDetails extends Component {
       <div>
         {this.state.trip ?  tripDetailBox() : <></>}
         {this.state.trip ? <GameDetails gameId={this.state.trip.trip['game_id']} /> : <></>}
-        {this.state.activeEdit ? <EditTrip currentUserId={this.props.currentUserId} tripId={this.props.tripId} editTrip={this.props.editTrip}/> : <button onClick={this.handleEditClick}>Edit</button>}
-        <button onClick={this.handleDeleteClick}>Delete</button>
-        {this.state.activeComplete ? <CompleteTripForm currentUserId={this.props.currentUserId} tripId={this.props.tripId} completeTrip={this.props.completeTrip}/> : <button onClick={this.handleCompleteClick}>Complete Trip</button>}
+        {this.state.activeEdit ? <EditTrip currentUserId={this.props.currentUserId} tripId={this.props.tripId} editTrip={this.props.editTrip}/> : <button className="btn btn-warning" onClick={this.handleEditClick}>Edit</button>}
+        <button className="btn btn-danger" onClick={this.handleDeleteClick}>Delete</button>
+        {this.state.activeComplete ? <CompleteTripForm currentUserId={this.props.currentUserId} tripId={this.props.tripId} completeTrip={this.props.completeTrip}/> : <button className="btn btn-primary" onClick={this.handleCompleteClick}>Complete Trip</button>}
       </div>
     )
   }
