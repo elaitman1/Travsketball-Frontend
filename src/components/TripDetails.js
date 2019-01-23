@@ -45,7 +45,7 @@ class TripDetails extends Component {
   render() {
 
     const tripDetailBox = () => {
-      return <div>
+      return <div className="trip-details text-center">
               <button className="btn btn-primary" onClick={this.handleClearTrip}>Back to Trip List</button>
               <h2>{this.state.trip.trip.title}</h2>
               <h4>Hotel: {this.state.trip.hotel}</h4>

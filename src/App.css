@@ -1,16 +1,71 @@
 body {
   padding-bottom: 200px;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 400;
 }
 
-.nav {
-  height: 100px;
-  width: 100%;
-  border: 3px solid red;
+h1, h2, h3, h4 {
+  font-weight: 700;
 }
 
-.nav a {
-  margin: 10px;
+.btn.btn-primary {
+  background-color: #4960a2;
+  border-color: #4960a2;
 }
+
+.btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
+  background-color: #222E50;
+  border-color: #222E50;
+}
+
+label {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+/********** NAV **********/
+.custom-nav {
+  background-color: #d44500;
+  position: relative;
+  color: #fff;
+  padding: 15px 0;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .5);
+ box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+}
+
+.custom-nav .col {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-nav h1 {
+  font-family: 'Monoton', cursive;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.custom-nav .nav-links a {
+  margin-left: 25px;
+  font-size: 1.2em;
+  margin-top: 5px;
+  border-bottom: 3px solid transparent;
+  color: #fff;
+  font-weight: 700;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.custom-nav .nav-links a:hover, .custom-nav .nav-links a:active, .custom-nav .nav-links a:focus {
+  text-decoration: none;
+  border-color: #fff;
+}
+
+
 
 .TripList {
   /* float: left;
@@ -34,6 +89,21 @@ body {
 }
 
 /********* NEW TRIP ********/
+.new-trip-title h2 {
+  display: inline-block;
+  font-size: 2.2em;
+  padding-bottom: 5px;
+  border-bottom: 5px solid #d44500;
+}
+
+.new-trip-title .btn-primary {
+  margin-top: 15px;
+}
+
+.logo-box {
+  margin-top: 25px;
+}
+
 .logo-box .logo {
   display: inline-block;
   vertical-align: middle;
@@ -60,9 +130,70 @@ transition: all .25s ease-in-out;
 transform: scale(1.2);
 }
 
+/********** CREATE TRIP FORM **********/
+.create-trip-form .col-md-3:last-of-type {
+  display: flex;
+  align-items: center;
+}
+
+.create-trip-form .col-md-3:last-of-type .btn-primary {
+  margin: 0 auto;
+  font-size: 2em;
+  padding: .1rem .75rem .375rem;
+}
+
+/********** GAME PREVIEW **********/
+.game-preview {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px 0;
+  border: 3px solid transparent;
+  -webkit-transition: all .25s ease-in-out;
+-moz-transition: all .25s ease-in-out;
+-ms-transition: all .25s ease-in-out;
+-o-transition: all .25s ease-in-out;
+transition: all .25s ease-in-out;
+}
+
+.game-preview:hover {
+  border-color:  #d44500;
+}
 
 /********** GAME DETAILS **********/
+.game-details {
+  text-align: center;
+}
+
 .game-details img {
   width: 200px;
   height: auto;
+}
+
+.game-details .stadium {
+  position: relative;
+}
+
+.game-details .stadium img {
+  margin: 25px 0;
+  width: 100%;
+  -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .5);
+ box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+}
+
+.game-details .stadium .info {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  text-align: left;
+  padding: 15px;
+  background-color: #d44500;
+  color: #fff;
+  -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .5);
+ box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+}
+
+/********** TRIP DETAILS *********/
+.trip-details {
+  
 }

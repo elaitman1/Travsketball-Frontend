@@ -77,7 +77,7 @@ class NewTrip extends Component {
 
     return (
       <div className="new-trip container">
-        <div className="row">
+        <div className="row new-trip-title text-center">
           <div className="col-12">
             <h2>{this.state.team ? "Select a Game": "Select a Team"}</h2>
           </div>
@@ -86,8 +86,8 @@ class NewTrip extends Component {
           </div>
         </div>
           {gameContainer}
-          {this.state.gameId && !this.state.gameConfirmed ? <button className="btn btn-primary" onClick={this.addGameToTrip}>Add to Trip</button> : <></>}
-          {this.state.gameConfirmed ? <PickTripDetails gameId={this.state.gameId} createTrip={this.props.createTrip}/> : <></>}
+          {/* {this.state.gameId && !this.state.gameConfirmed ? <button className="btn btn-primary" onClick={this.addGameToTrip}>Add to Trip</button> : <></>} */}
+          {this.state.gameId ? <PickTripDetails gameId={this.state.gameId} createTrip={this.props.createTrip}/> : <></>}
 
       </div>
     )

@@ -80,13 +80,19 @@ class App extends Component {
     return (
       <Router>
         <>
-        <div className="nav">
-          <nav>
-            <h1>TravelSports</h1>
-            <Link to="/">Home</Link>
-            <Link to="/new-trip">Create A New Trip</Link>
-            <Link to="/trip-list">Trip List</Link>
-          </nav>
+        <div className="custom-nav">
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <h1>Travsketball</h1>
+                <nav className="nav-links">
+                  <Link to="/">Home</Link>
+                  <Link to="/new-trip">New Trip</Link>
+                  <Link to="/trip-list">Trip List</Link>
+                </nav>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
           <Route path="/" exact component={Login} />
@@ -94,6 +100,7 @@ class App extends Component {
 
           <Route path="/new-trip/" render={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
           <Route path="/trip-list" render={props => <TripList currentUserId={this.state.currentUserId} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/> } />
+          <Route path="/test" component={Homepage} />
         </div>
         </>
       </Router>
