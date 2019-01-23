@@ -49,6 +49,7 @@ class Homepage extends Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <div>
       {this.state.signUp ?
         <Form onSubmit={this.handleSubmit}>
@@ -84,6 +85,13 @@ class Homepage extends Component {
         </Form>
     }
     </div>
+=======
+      <div className="container">
+        <h2>Homepage Placeholder</h2>
+        <Link to="/new-trip"><button>New Trip</button></Link>
+        <Link to="/trip-list"><button>Trip List</button></Link>
+      </div>
+>>>>>>> d4d96a3069afb7350a84912541d945fa89f89a71
     )
   }
 }

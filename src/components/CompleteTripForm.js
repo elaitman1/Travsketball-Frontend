@@ -61,7 +61,7 @@ class CompleteTripForm extends Component {
           </select><br/>
           <label name="img_url">Image: </label>
           <input onChange={this.handleChange} type="text" name="imgUrl" value={this.state.imgUrl}/><br/>
-          <button type="submit">Submit</button>
+          <button className="btn btn-primary" type="submit">Submit</button>
         </form>
       </div>
     );

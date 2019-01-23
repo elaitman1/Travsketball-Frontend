@@ -55,7 +55,7 @@ class PickTripDetails extends Component {
         </select>
         <label>Trip Title</label>
         <input type="text" name="title" value={this.state.title} onChange={this.handleChange}/>
-        <button onClick={this.handleClick}>Create Trip</button>
+        <button className="btn btn-primary" onClick={this.handleClick}>Create Trip</button>
       </div>
     )
   }

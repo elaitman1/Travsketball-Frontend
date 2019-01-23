@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import './App.css';
 import Homepage from './containers/Homepage'
-import Header from './containers/Header.js';
 import TripList from './containers/TripList.js'
-// import TripDetailsContainer from './containers/TripDetailsContainer.js'
-import GameContainer from './containers/GameContainer'
 import NewTrip from './containers/NewTrip'
 
 class App extends Component {
@@ -66,25 +63,36 @@ class App extends Component {
         transportation_id: parseInt(transportationId),
       })
     })
-    .then(window.location.href = '/trip-list')
+    // .then(window.location.href = '/trip-list')
+    .then( <Redirect to="/trip-list"/>)
   }
 
   deleteTrip = (tripId) => {
     fetch(`http://localhost:4000/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
       method: "DELETE"
     })
-    .then(window.location.href = '/trip-list')
+    // .then(window.location.href = '/trip-list')
+    .then( <Redirect to="/trip-list"/>)
   }
 
   render() {
     return (
       <Router>
-        <div>
-          <Header />
-          <Route path="/" exact component={Homepage} />
-          <Route path="/new-trip/" component={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
-          <Route path="/trip-list" component={props => <TripList currentUserId={this.state.currentUserId} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/> } />
+        <>
+        <div className="nav">
+          <nav>
+            <h1>TravelSports</h1>
+            <Link to="/">Home</Link>
+            <Link to="/new-trip">Create A New Trip</Link>
+            <Link to="/trip-list">Trip List</Link>
+          </nav>
         </div>
+        <div>
+          <Route path="/" exact component={Homepage} />
+          <Route path="/new-trip/" render={props => <NewTrip teams={this.state.teams} games={this.state.games} createTrip={this.createTrip} />} />
+          <Route path="/trip-list" render={props => <TripList currentUserId={this.state.currentUserId} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/> } />
+        </div>
+        </>
       </Router>
     );
   }
