@@ -42,7 +42,7 @@ export default class Login extends React.Component{
             name="username"
             onChange={this.handleChange}
             type="text"
-            placeholder='userName'
+            placeholder='Enter username'
             className="form-control"
             value={this.state.username}
           />
@@ -53,7 +53,7 @@ export default class Login extends React.Component{
             name="password"
             onChange={this.handleChange}
             type="password"
-            placeholder='password'
+            placeholder='Enter password'
             className="form-control"
             value={this.state.password}
           />

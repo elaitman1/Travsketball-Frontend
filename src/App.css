@@ -22,6 +22,30 @@ label {
   font-weight: 700;
   font-size: 1.5em;
 }
+
+.homepage-bg {
+  background-image: url('./img/nba-game.jpg');
+  background-size: cover;
+  height: 100vh;
+  margin-top: -50px;
+}
+
+.homepage-bg .btn-primary {
+  font-size: 2em;
+  color: #fff;
+  margin-top: 33vh;
+  padding: 10px 25px 12px;
+}
+
+.homepage-bg .btn-primary a {
+  color: #fff;
+  font-weight: 700;
+}
+
+.homepage-bg .btn-primary a:hover, .homepage-bg .btn-primary a:active, .homepage-bg .btn-primary a:focus {
+  color: #fff;
+  text-decoration: none;
+}
 /********** NAV **********/
 .custom-nav {
   background-color: #d44500;
@@ -168,6 +192,7 @@ transition: all .25s ease-in-out;
 .game-details img {
   width: 200px;
   height: auto;
+  margin: 15px 25px;
 }
 
 .game-details .stadium {
@@ -193,7 +218,26 @@ transition: all .25s ease-in-out;
  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
 }
 
+/********** TRIP PREVIEW **********/
+.trip-preview {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 /********** TRIP DETAILS *********/
+.trip-title {
+  display: inline-block;
+  font-size: 3em;
+  padding-bottom: 5px;
+  border-bottom: 5px solid #d44500;
+  margin: 25px 0;
+}
+
 .trip-details {
-  
+  margin-bottom: 30px;
+}
+
+
+.edit-form {
+  margin: 30px 0;
 }

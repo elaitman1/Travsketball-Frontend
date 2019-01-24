@@ -3,7 +3,7 @@ import Login from './Login'
 import SignUp from './SignUp'
 // import { Link } from "react-router-dom"
 // import { Button, Checkbox, Form } from 'semantic-ui-react'
-import {Redirect} from "react-router-dom"
+import {Link, Redirect} from "react-router-dom"
 
 class Homepage extends Component {
 
@@ -41,14 +41,30 @@ class Homepage extends Component {
       }
     }
 
-    return (<div className="container">
-      <div className="row">
-        {this.props.currentUserId && <Redirect to="/new-trip"/>}
-        <div className="col-12">
-          {homepagePrompt()}
+    return (
+    //   <div className="container">
+    //   <div className="row">
+    //     {/* {this.props.currentUserId && <Redirect to="/new-trip"/>} */}
+    //     <div className="col-12">
+    //       {/* {homepagePrompt()} */}
+    //
+    //     </div>
+    //   </div>
+    // </div>
+
+    <div className="homepage-bg text-center">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <button className="btn btn-primary"><Link to="/new-trip">New Trip</Link></button>
+          </div>
+          <div className="col-md-6">
+            <button className="btn btn-primary"><Link to="/trip-list">Trip List</Link></button>
+          </div>
         </div>
       </div>
-    </div>)
+    </div>
+  )
   }
 }
 

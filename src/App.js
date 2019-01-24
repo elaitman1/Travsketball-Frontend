@@ -8,7 +8,8 @@ import Login from './containers/Login'
 
 class App extends Component {
   state = {
-    currentUserId: undefined,
+    // currentUserId: undefined,
+    currentUserId: 27,
     games: [],
     teams: [],
   }
@@ -54,8 +55,9 @@ class App extends Component {
         transportation_id: transportationId
       })
     })
-    // .then(r => window.location.href = '/trip-list')
-    .then( <Redirect to="/trip-list"/>)
+     .then(r => window.location.href = '/trip-list')
+
+
   }
 
   editTrip = (tripId, title, hotelId, transportationId) => {
@@ -69,20 +71,29 @@ class App extends Component {
       body: JSON.stringify({
         title: title,
         hotel_id: parseInt(hotelId),
-        transportation_id: parseInt(transportationId),
+        transportation_id: parseInt(transportationId)
       })
     })
-    // .then(window.location.href = '/trip-list')
-    .then( <Redirect to="/trip-list"/>)
+    .then(window.location.href = '/trip-list')
+    // .then( <Redirect to="/trip-list"/>)
   }
 
   deleteTrip = (tripId) => {
     fetch(`http://localhost:4000/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
       method: "DELETE"
     })
-    // .then(window.location.href = '/trip-list')
-    .then( <Redirect to="/trip-list"/>)
+    .then(window.location.href = '/trip-list')
+    // .then( <Redirect to="/trip-list"/>)
   }
+
+  // showLinks = () => {
+  //   return  <>
+  //             <Link to="/">Home</Link>
+  //             <Link to="/new-trip">New Trip</Link>
+  //             <Link to="/trip-list">Trip List</Link>
+  //           </>
+  // }
+
 
   render() {
 
@@ -95,6 +106,7 @@ class App extends Component {
               <div className="col">
                 <h1>Travsketball</h1>
                 <nav className="nav-links">
+                  {/* {this.state.currentUserId && this.showLinks()} */}
                   <Link to="/">Home</Link>
                   <Link to="/new-trip">New Trip</Link>
                   <Link to="/trip-list">Trip List</Link>

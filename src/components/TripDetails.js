@@ -29,7 +29,7 @@ class TripDetails extends Component {
   }
 
   handleDeleteClick = () => {
-    this.props.deleteTrip(this.props.trip.id)
+    this.props.deleteTrip(this.props.tripId)
   }
 
   handleCompleteClick = () => {
@@ -46,15 +46,15 @@ class TripDetails extends Component {
 
     const tripDetailBox = () => {
       return <div className="trip-details text-center">
-              <button className="btn btn-primary" onClick={this.handleClearTrip}>Back to Trip List</button>
-              <h2>{this.state.trip.trip.title}</h2>
+              <button className="btn btn-primary" onClick={this.handleClearTrip}>Back to Trip List</button><br/>
+              <h2 className="trip-title">{this.state.trip.trip.title}</h2>
               <h4>Hotel: {this.state.trip.hotel}</h4>
               <h4>Transportation: {this.state.trip.transportation}</h4>
             </div>
     }
 
     return (
-      <div>
+      <div className="text-center">
         {this.state.trip ?  tripDetailBox() : <></>}
         {this.state.trip ? <GameDetails gameId={this.state.trip.trip['game_id']} /> : <></>}
         {this.state.activeEdit ? <EditTrip currentUserId={this.props.currentUserId} tripId={this.props.tripId} editTrip={this.props.editTrip}/> : <button className="btn btn-warning" onClick={this.handleEditClick}>Edit</button>}

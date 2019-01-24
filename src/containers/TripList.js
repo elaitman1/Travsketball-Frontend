@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 import PlannedTrips from './PlannedTrips'
 import CompletedTrips from './CompletedTrips'
 import TripDetails from  '../components/TripDetails'

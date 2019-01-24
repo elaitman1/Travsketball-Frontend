@@ -4,7 +4,7 @@ class CompleteTripForm extends Component {
 
   state = {
     review: "",
-    rating: null,
+    rating: "Pick a Rating",
     imgUrl: ""
   }
 
@@ -49,18 +49,25 @@ class CompleteTripForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label name="review">Review: </label>
-          <textarea onChange={this.handleChange} name="review" value={this.state.review}></textarea><br/>
-          <label name="rating">Rating: </label>
-          <select onChange={this.handleChange} name="rating" value={this.state.rating}>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select><br/>
-          <label name="img_url">Image: </label>
-          <input onChange={this.handleChange} type="text" name="imgUrl" value={this.state.imgUrl}/><br/>
+          <div className="form-group">
+            <label name="review">Review: </label>
+            <textarea className="form-control" onChange={this.handleChange} name="review" value={this.state.review}></textarea><br/>
+          </div>
+          <div className="form-group">
+            <label name="rating">Rating: </label>
+            <select className="form-control" onChange={this.handleChange} name="rating" value={this.state.rating}>
+              <option value="Pick a Rating">Pick a Rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          {/* <div className="form-group">
+            <label name="imgUrl">Image URL </label>
+            <input className="form-control" onChange={this.handleChange} type="text" name="imgUrl" value={this.state.imgUrl}/><br/>
+          </div> */}
           <button className="btn btn-primary" type="submit">Submit</button>
         </form>
       </div>

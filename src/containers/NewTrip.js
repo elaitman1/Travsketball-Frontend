@@ -44,7 +44,8 @@ class NewTrip extends Component {
 
   clearTeam = () => {
     this.setState({
-      team: null
+      team: null,
+      gameId: null
     })
   }
 
