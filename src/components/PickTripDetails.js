@@ -10,13 +10,13 @@ class PickTripDetails extends Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:4000/api/v1/transportations')
+    fetch('https://travsketball.herokuapp.com/api/v1/transportations')
     .then(r=>r.json())
     .then(r=>{
       this.setState({transportations: r})
     })
 
-    fetch('http://localhost:4000/api/v1/hotels')
+    fetch('https://travsketball.herokuapp.com/api/v1/hotels')
     .then(r=>r.json())
     .then(r=>{
       this.setState({hotels: r})

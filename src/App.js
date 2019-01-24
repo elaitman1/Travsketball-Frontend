@@ -22,7 +22,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    fetch("http://localhost:4000/api/v1/games")
+    fetch("https://travsketball.herokuapp.com/api/v1/games")
     .then(r => r.json())
     .then(data => {
       this.setState({
@@ -30,7 +30,7 @@ class App extends Component {
       })
     })
 
-    fetch("http://localhost:4000/api/v1/teams")
+    fetch("https://travsketball.herokuapp.com/api/v1/teams")
     .then(r => r.json())
     .then(data => {
       this.setState({
@@ -41,7 +41,7 @@ class App extends Component {
 
   createTrip = (gameId, title, hotelId, transportationId) => {
     console.log("hit create trip")
-    fetch(`http://localhost:4000/api/v1/users/${this.state.currentUserId}/trips`, {
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/${this.state.currentUserId}/trips`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +62,7 @@ class App extends Component {
 
   editTrip = (tripId, title, hotelId, transportationId) => {
     console.log("edit trip:", tripId, title, parseInt(hotelId), parseInt(transportationId))
-    fetch(`http://localhost:4000/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +79,7 @@ class App extends Component {
   }
 
   deleteTrip = (tripId) => {
-    fetch(`http://localhost:4000/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
       method: "DELETE"
     })
     .then(window.location.href = '/trip-list')

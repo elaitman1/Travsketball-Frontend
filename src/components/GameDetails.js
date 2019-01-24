@@ -11,7 +11,7 @@ class GameDetails extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:4000/api/v1/games/${this.props.gameId}`)
+    fetch(`https://travsketball.herokuapp.com/api/v1/games/${this.props.gameId}`)
     .then(r => r.json())
     .then(data => {
       this.setState({

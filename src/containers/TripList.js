@@ -30,7 +30,7 @@ class TripList extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:4000/api/v1/users/${this.props.currentUserId}/trips`)
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/${this.props.currentUserId}/trips`)
     .then(r => r.json())
     .then(data => {
       this.setState({
