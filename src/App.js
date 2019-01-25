@@ -62,7 +62,7 @@ class App extends Component {
 
   editTrip = (tripId, title, hotelId, transportationId) => {
     console.log("edit trip:", tripId, title, parseInt(hotelId), parseInt(transportationId))
-    fetch(`https://travsketball.herokuapp.com/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/1/trips/${tripId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +79,7 @@ class App extends Component {
   }
 
   deleteTrip = (tripId) => {
-    fetch(`https://travsketball.herokuapp.com/api/v1/users/${this.state.currentUserId}/trips/${tripId}`, {
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/1/trips/${tripId}`, {
       method: "DELETE"
     })
     .then(window.location.href = '/trip-list')
