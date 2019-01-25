@@ -41,7 +41,7 @@ class App extends Component {
 
   createTrip = (gameId, title, hotelId, transportationId) => {
     console.log("hit create trip")
-    fetch(`https://travsketball.herokuapp.com/api/v1/users/${this.state.currentUserId}/trips`, {
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/1/trips`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ class App extends Component {
         transportation_id: transportationId
       })
     })
-     // .then(r => window.location.href = '/trip-list')
+      .then(r => window.location.href = '/trip-list')
 
 
   }
