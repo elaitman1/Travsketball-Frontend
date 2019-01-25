@@ -75,7 +75,7 @@ class App extends Component {
       })
     })
     .then(window.location.href = '/trip-list')
-    // .then( <Redirect to="/trip-list"/>)
+    .then( <Redirect to="/trip-list"/>)
   }
 
   deleteTrip = (tripId) => {
