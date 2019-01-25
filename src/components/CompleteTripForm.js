@@ -16,7 +16,7 @@ class CompleteTripForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    fetch(`https://travsketball.herokuapp.com/api/v1/users/1/trips/${this.props.tripId}/experiences`, {
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/${this.props.currentUserId}/trips/${this.props.tripId}/experiences`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ class CompleteTripForm extends Component {
     })
     .then(res => res.json())
     .then(data => {
-      fetch(`https://travsketball.herokuapp.com/api/v1/users/1/trips/${this.props.tripId}`, {
+      fetch(`https://travsketball.herokuapp.com/api/v1/users/${this.props.currentUserId}/trips/${this.props.tripId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
