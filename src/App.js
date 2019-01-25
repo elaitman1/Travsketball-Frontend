@@ -55,7 +55,7 @@ class App extends Component {
         transportation_id: transportationId
       })
     })
-     .then(r => window.location.href = '/trip-list')
+     // .then(r => window.location.href = '/trip-list')
 
 
   }
