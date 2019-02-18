@@ -11,7 +11,7 @@ class TripDetails extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:4000/api/v1/users/${this.props.currentUserId}/trips/${this.props.tripId}`)
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/1/trips/${this.props.tripId}`)
     .then(r => r.json())
     .then(data => {
       console.log(data)

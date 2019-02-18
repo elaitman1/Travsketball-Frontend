@@ -8,7 +8,7 @@ class ExperienceDetails extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:4000/api/v1/users/${this.props.currentUserId}/trips/${this.props.tripId}/experiences`)
+    fetch(`https://travsketball.herokuapp.com/api/v1/users/1/trips/${this.props.tripId}/experiences`)
     .then(r => r.json())
     .then(data => {
       console.log(data)

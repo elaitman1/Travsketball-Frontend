@@ -9,7 +9,7 @@ export default class Login extends React.Component{
   handleSubmit = (e) => {
     e.preventDefault()
 
-    fetch("http://localhost:4000/api/v1/login", {
+    fetch("https://travsketball.herokuapp.com/api/v1/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
